@@ -1,0 +1,56 @@
+#include "Character.h"
+#include <iostream>
+
+Character::Character(std::string n, int h, int a, int d) {
+    name = n;
+    hp = h;
+    attack = a;
+    defense = d;
+}
+
+void Character::attackTarget(Character &target) {
+    std::cout << name << " attacks " << target.name << std::endl;
+    target.takeDamage(attack);
+}
+
+void Character::takeDamage(int dmg) {
+    int realDamage = dmg - defense;
+
+    if (realDamage < 0) {
+        realDamage = 0;
+    }
+
+    hp = hp - realDamage;
+
+    if (hp < 0) {
+        hp = 0;
+    }
+}
+
+bool Character::isAlive() const {
+    return hp > 0;
+}
+
+void Character::display() const {
+    std::cout << name
+              << " HP: " << hp
+              << " ATTACK: " << attack
+              << " DEFENCE: " << defense
+              << std::endl;
+}
+
+std::string Character::getName() const {
+    return name;
+}
+
+int Character::getHP() const {
+    return hp;
+}
+
+int Character::getAttack() const {
+    return attack;
+}
+
+int Character::getDefense() const {
+    return defense;
+}
