@@ -1,12 +1,22 @@
 #include "enemy.h"
 #include <iostream>
-#include <cstdlib>
 
-Enemy::Enemy(std::string name)
-    : Character(name, 80, 15, 3) {}
+Enemy::Enemy(std::string n)
+    : Character(n, 80, 15, 3) {
+}
 
 void Enemy::attackTarget(Character &target) {
-    int dmg = attack + (rand() % 5);
-    std::cout << name << " attacks with " << dmg << " damage!\n";
-    target.takeDamage(dmg);
+    std::cout << "\n[ENEMY ATTACK]" << std::endl;
+    std::cout << "Attacker: " << name << std::endl;
+    std::cout << "Target: " << target.getName() << std::endl;
+
+    int hpBefore = target.getHP();
+
+    target.takeDamage(attack);
+
+    int hpAfter = target.getHP();
+    int damageDone = hpBefore - hpAfter;
+
+    std::cout << target.getName() << " took " << damageDone << " damage" << std::endl;
+    std::cout << target.getName() << " HP: " << hpBefore << " -> " << hpAfter << std::endl;
 }

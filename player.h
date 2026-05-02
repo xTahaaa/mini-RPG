@@ -1,17 +1,13 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "character.h"
+#include "Character.h"
 
 class Player : public Character {
-private:
-    int potions;
-
 public:
-    Player(std::string name);
+    Player(std::string n);
 
     void attackTarget(Character &target) override;
-    void usePotion();
 };
 
 #endif
