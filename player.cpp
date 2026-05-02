@@ -2,7 +2,7 @@
 #include <iostream>
 
 Player::Player(std::string n)
-    : Character(n, 120, 25, 8) {
+    : Character(n, 100, 25, 8) {
 }
 
 void Player::attackTarget(Character &target) {
