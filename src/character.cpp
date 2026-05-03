@@ -1,12 +1,8 @@
 #include "Character.h"
 #include <iostream>
 
-Character::Character(std::string n, int h, int a, int d) {
-    name = n;
-    hp = h;
-    attack = a;
-    defense = d;
-}
+Character::Character(std::string n, int h, int a, int d, int s)
+    : name(n), hp(h), attack(a), defense(d), speed(s) {}
 
 void Character::attackTarget(Character &target) {
     std::cout << name << " attacks " << target.name << std::endl;
@@ -36,6 +32,7 @@ void Character::display() const {
               << " HP: " << hp
               << " ATTACK: " << attack
               << " DEFENCE: " << defense
+              << " SPEED: " << speed
               << std::endl;
 }
 
@@ -53,4 +50,8 @@ int Character::getAttack() const {
 
 int Character::getDefense() const {
     return defense;
+}
+
+int Character::getSpeed() const {
+    return speed;
 }

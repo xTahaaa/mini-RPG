@@ -9,13 +9,14 @@ protected :
     int hp;
     int attack;
     int defense;
+    int speed ;
 
 public:
     //constructor
-    Character(std::string n, int h, int a, int d);
+    Character(std::string n, int h, int a, int d,int s);
 
     //attack function
-    virtual void attackTarget(Character &target);
+    virtual void attackTarget(Character &target)=0;
     
     //damage
     virtual void takeDamage(int dmg);
@@ -31,7 +32,7 @@ public:
     int getHP() const;
     int getAttack() const;
     int getDefense() const ;
-
+    int getSpeed() const;
     //destructor
     virtual ~Character() {}
 };
