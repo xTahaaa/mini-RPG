@@ -2,6 +2,8 @@
 #define CHARACTER_H
 
 #include <string>
+#include <vector>
+#include <iostream>
 
 class Character {
 protected :
@@ -10,6 +12,7 @@ protected :
     int attack;
     int defense;
     int speed ;
+    std::vector<std::string> inventory;
 
 public:
     //constructor
@@ -26,6 +29,12 @@ public:
 
     //character's stats
     void display() const;
+    
+    // inventory methods
+    void addItem(const std::string& item);
+    void removeItem(const std::string& item);
+    bool hasItem(const std::string& item) const;
+    void displayInventory() const;
 
     //getters 
     std::string getName() const;
