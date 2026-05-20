@@ -1,5 +1,6 @@
 #include "Character.h"
 #include <iostream>
+#include <algorithm>
 
 Character::Character(std::string n, int h, int a, int d, int s)
     : name(n), hp(h), attack(a), defense(d), speed(s) {}
@@ -29,6 +30,40 @@ void Character::display() const {
               << " DEFENCE: " << defense
               << " SPEED: " << speed
               << std::endl;
+    displayInventory();
+}
+// ================= INVENTORY =================
+ 
+void Character::addItem(const std::string& item) {
+    inventory.push_back(item);
+    std::cout << "  [+] \"" << item << "\" added to inventory." << std::endl;
+}
+ 
+void Character::removeItem(const std::string& item) {
+    auto it = std::find(inventory.begin(), inventory.end(), item);
+    if (it != inventory.end()) {
+        inventory.erase(it);
+        std::cout << "  [-] \"" << item << "\" removed from inventory." << std::endl;
+    } else {
+        std::cout << "  [!] \"" << item << "\" not found in inventory." << std::endl;
+    }
+}
+ 
+bool Character::hasItem(const std::string& item) const {
+    return std::find(inventory.begin(), inventory.end(), item) != inventory.end();
+}
+ 
+void Character::displayInventory() const {
+    if (inventory.empty()) {
+        std::cout << "  Inventory: (empty)" << std::endl;
+    } else {
+        std::cout << "  Inventory: ";
+        for (size_t i = 0; i < inventory.size(); ++i) {
+            std::cout << "[" << inventory[i] << "]";
+            if (i < inventory.size() - 1) std::cout << ", ";
+        }
+        std::cout << std::endl;
+    }
 }
 
 std::string Character::getName() const {
