@@ -8,6 +8,7 @@ Dragon::Dragon(const std::string& name)
         addItem("Dragon Scale");
         addItem("Fire Crystal");
         addItem("Ancient Coin");
+        gainXP(500);
     }
 
 void Dragon::attackTarget(Character& target) {
@@ -30,6 +31,7 @@ Titan::Titan(const std::string& name)
         addItem("Stone Hammer");
         addItem("Titan Armor");
         addItem("Earth Rune");
+        gainXP(800);
     }
 
 void Titan::attackTarget(Character& target) {
