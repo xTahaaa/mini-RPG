@@ -8,6 +8,7 @@ Mage::Mage(const std::string& name)
         addItem("Magic Staff");
         addItem("Mana Potion");
         addItem("Spell Book");
+        gainXP(100);
     }
 
 void Mage::attackTarget(Character& target) {
@@ -30,6 +31,7 @@ Archer::Archer(const std::string& name)
         addItem("Bow");
         addItem("Quiver of Arrows");
         addItem("Dagger");
+        gainXP(80);
     }
 
 void Archer::attackTarget(Character& target) {
@@ -54,6 +56,7 @@ Guerrier::Guerrier(const std::string& name)
         addItem("Iron Sword");
         addItem("Shield");
         addItem("Health Potion");
+        gainXP(90);
     }
 
 void Guerrier::attackTarget(Character& target) {
