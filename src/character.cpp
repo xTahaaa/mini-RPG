@@ -4,11 +4,6 @@
 Character::Character(std::string n, int h, int a, int d, int s)
     : name(n), hp(h), attack(a), defense(d), speed(s) {}
 
-void Character::attackTarget(Character &target) {
-    std::cout << name << " attacks " << target.name << std::endl;
-    target.takeDamage(attack);
-}
-
 void Character::takeDamage(int dmg) {
     int realDamage = dmg - defense;
 
