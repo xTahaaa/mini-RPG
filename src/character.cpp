@@ -3,7 +3,7 @@
 #include <algorithm>
 
 Character::Character(std::string n, int h, int a, int d, int s)
-    : name(n), hp(h), attack(a), defense(d), speed(s) {}
+    : name(n), hp(h), attack(a), defense(d), speed(s), xp(0) {}
 
 void Character::takeDamage(int dmg) {
     int realDamage = dmg - defense;
@@ -29,10 +29,11 @@ void Character::display() const {
               << " ATTACK: " << attack
               << " DEFENCE: " << defense
               << " SPEED: " << speed
+              << " XP: " << xp
               << std::endl;
     displayInventory();
 }
-// ================= INVENTORY =================
+// ================= INVENTORY ET XP =================
  
 void Character::addItem(const std::string& item) {
     inventory.push_back(item);
@@ -66,6 +67,13 @@ void Character::displayInventory() const {
     }
 }
 
+ 
+void Character::gainXP(int amount) {
+    xp += amount;
+    std::cout << "  [XP] " << name << " gained " << amount << " XP! (Total: " << xp << ")" << std::endl;
+}
+ 
+
 std::string Character::getName() const {
     return name;
 }
@@ -84,4 +92,7 @@ int Character::getDefense() const {
 
 int Character::getSpeed() const {
     return speed;
+}
+int Character::getXP() const {
+    return xp;
 }
