@@ -4,7 +4,11 @@
 
 // ================= DRAGON =================
 Dragon::Dragon(const std::string& name)
-    : Character(name, 200, 40, 20, 12) {}
+    : Character(name, 200, 40, 20, 12) {
+        addItem("Dragon Scale");
+        addItem("Fire Crystal");
+        addItem("Ancient Coin");
+    }
 
 void Dragon::attackTarget(Character& target) {
     std::cout << getName() << " (Dragon) breathes fire on "
@@ -22,7 +26,11 @@ void Dragon::attackTarget(Character& target) {
 
 // ================= TITAN =================
 Titan::Titan(const std::string& name)
-    : Character(name, 300, 35, 30, 6) {}
+    : Character(name, 300, 35, 30, 6) {
+        addItem("Stone Hammer");
+        addItem("Titan Armor");
+        addItem("Earth Rune");
+    }
 
 void Titan::attackTarget(Character& target) {
     std::cout << getName() << " (Titan) crushes the ground under "
