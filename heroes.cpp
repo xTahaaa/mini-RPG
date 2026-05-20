@@ -4,7 +4,11 @@
 
 // ================= MAGE =================
 Mage::Mage(const std::string& name)
-    : Character(name, 80, 35, 8, 10) {}
+    : Character(name, 80, 35, 8, 10) {
+        addItem("Magic Staff");
+        addItem("Mana Potion");
+        addItem("Spell Book");
+    }
 
 void Mage::attackTarget(Character& target) {
     std::cout << getName() << " (Mage) casts a spell on "
@@ -22,7 +26,11 @@ void Mage::attackTarget(Character& target) {
 
 // ================= ARCHER =================
 Archer::Archer(const std::string& name)
-    : Character(name, 90, 22, 8, 18) {}
+    : Character(name, 90, 22, 8, 18) {
+        addItem("Bow");
+        addItem("Quiver of Arrows");
+        addItem("Dagger");
+    }
 
 void Archer::attackTarget(Character& target) {
     std::cout << getName() << " (Archer) shoots an arrow at "
@@ -42,7 +50,11 @@ void Archer::attackTarget(Character& target) {
 
 // ================= GUERRIER =================
 Guerrier::Guerrier(const std::string& name)
-    : Character(name, 120, 25, 15, 8) {}
+    : Character(name, 120, 25, 15, 8) {
+        addItem("Iron Sword");
+        addItem("Shield");
+        addItem("Health Potion");
+    }
 
 void Guerrier::attackTarget(Character& target) {
     std::cout << getName() << " (Guerrier) attacks "
