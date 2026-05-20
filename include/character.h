@@ -13,6 +13,7 @@ protected :
     int defense;
     int speed ;
     std::vector<std::string> inventory;
+    int xp;
 
 public:
     //constructor
@@ -30,14 +31,17 @@ public:
     //character's stats
     void display() const;
     
-    // inventory methods
+    // inventory methods et xp
     void addItem(const std::string& item);
     void removeItem(const std::string& item);
     bool hasItem(const std::string& item) const;
     void displayInventory() const;
-
+    void gainXP(int amount);
+    
+    
     //getters 
     std::string getName() const;
+    int getXP() const;
     int getHP() const;
     int getAttack() const;
     int getDefense() const ;
