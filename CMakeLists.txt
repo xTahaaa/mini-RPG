@@ -10,4 +10,6 @@ include_directories(include)
 add_executable(mini-RPG
     src/main.cpp
     src/Character.cpp
+    src/Heroes.cpp
+    src/Enemies.cpp
 )
