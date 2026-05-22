@@ -1,3 +1,0 @@
-C:/Users/info/Desktop/Projects/mini-RPG/build/CMakeFiles/mini-RPG.dir
-C:/Users/info/Desktop/Projects/mini-RPG/build/CMakeFiles/edit_cache.dir
-C:/Users/info/Desktop/Projects/mini-RPG/build/CMakeFiles/rebuild_cache.dir
