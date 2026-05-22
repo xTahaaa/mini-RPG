@@ -1,28 +1,21 @@
 #include "Character.h"
 #include <iostream>
 #include <algorithm>
-
+ 
 Character::Character(std::string n, int h, int a, int d, int s)
-    : name(n), hp(h), attack(a), defense(d), speed(s), xp(0),level(1) {}
-
+    : name(n), hp(h), attack(a), defense(d), speed(s), xp(0), level(1) {}
+ 
 void Character::takeDamage(int dmg) {
     int realDamage = dmg - defense;
-
-    if (realDamage < 0) {
-        realDamage = 0;
-    }
-
+    if (realDamage < 0) realDamage = 0;
     hp = hp - realDamage;
-
-    if (hp < 0) {
-        hp = 0;
-    }
+    if (hp < 0) hp = 0;
 }
-
+ 
 bool Character::isAlive() const {
     return hp > 0;
 }
-
+ 
 void Character::display() const {
     std::cout << name
               << " HP: " << hp
@@ -34,7 +27,6 @@ void Character::display() const {
               << std::endl;
     displayInventory();
 }
-// ================= INVENTORY ET XP =================
  
 void Character::addItem(const std::string& item) {
     inventory.push_back(item);
@@ -67,47 +59,38 @@ void Character::displayInventory() const {
         std::cout << std::endl;
     }
 }
-
  
 void Character::gainXP(int amount) {
     xp += amount;
-    std::cout << "  [XP] " << name << " gained " << amount << " XP! (Total: " << xp << ")" << std::endl;
-     // threshold : 100 XP par level
+    std::cout << "  [XP] " << name << " gained " << amount << " XP! (Total: " << xp << "/" << level * 100 << ")" << std::endl;
     int threshold = level * 100;
     if (xp >= threshold) {
         xp -= threshold;
         levelUp();
     }
 }
+ 
 void Character::levelUp() {
     level++;
     attack += 5;
     defense += 2;
     hp += 20;
-    std::cout << name << " passed to level " << level << "! Stats increased." << std::endl;
+    speed += 1;
+    std::cout << "\n==============================" << std::endl;
+    std::cout << ">>> LEVEL UP! Now Level " << level << " <<<" << std::endl;
+    std::cout << "HP+20  ATK+5  DEF+2  SPD+1" << std::endl;
+    std::cout << "==============================" << std::endl;
 }
-
  
-
-std::string Character::getName() const {
-    return name;
-}
-
-int Character::getHP() const {
-    return hp;
-}
-
-int Character::getAttack() const {
-    return attack;
-}
-
-int Character::getDefense() const {
-    return defense;
-}
-
-int Character::getSpeed() const {
-    return speed;
-}
-int Character::getXP() const {
-    return xp;
+std::string Character::getName() const { return name; }
+int Character::getHP() const { return hp; }
+int Character::getAttack() const { return attack; }
+int Character::getDefense() const { return defense; }
+int Character::getSpeed() const { return speed; }
+int Character::getXP() const { return xp; }
+int Character::getLevel() const { return level; }
+ 
+void Character::setHP(int newHP) {
+    if (newHP < 0) newHP = 0;
+    hp = newHP;
 }

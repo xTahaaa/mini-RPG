@@ -1,10 +1,10 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
-
+ 
 #include <string>
 #include <vector>
 #include <iostream>
-
+ 
 class Character {
 protected :
     std::string name;
@@ -15,20 +15,20 @@ protected :
     std::vector<std::string> inventory;
     int xp;
     int level;
-
+ 
 public:
     //constructor
     Character(std::string n, int h, int a, int d,int s);
-
+ 
     //attack function
     virtual void attackTarget(Character &target)=0;
     
     //damage
     virtual void takeDamage(int dmg);
-
+ 
     //is still alive or not
     bool isAlive() const;
-
+ 
     //character's stats
     void display() const;
     //level
@@ -50,8 +50,12 @@ public:
     int getDefense() const ;
     int getSpeed() const;
     int getLevel() const;
+ 
+    void setHP(int newHP); 
+ 
     //destructor
     virtual ~Character() {}
 };
-
+ 
 #endif
+ 
