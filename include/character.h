@@ -14,6 +14,7 @@ protected :
     int speed ;
     std::vector<std::string> inventory;
     int xp;
+    int level;
 
 public:
     //constructor
@@ -30,6 +31,8 @@ public:
 
     //character's stats
     void display() const;
+    //level
+    virtual void levelUp();
     
     // inventory methods et xp
     void addItem(const std::string& item);
@@ -46,6 +49,7 @@ public:
     int getAttack() const;
     int getDefense() const ;
     int getSpeed() const;
+    int getLevel() const;
     //destructor
     virtual ~Character() {}
 };
