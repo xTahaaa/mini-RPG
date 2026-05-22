@@ -3,7 +3,7 @@
 #include <algorithm>
 
 Character::Character(std::string n, int h, int a, int d, int s)
-    : name(n), hp(h), attack(a), defense(d), speed(s), xp(0) {}
+    : name(n), hp(h), attack(a), defense(d), speed(s), xp(0),level(1) {}
 
 void Character::takeDamage(int dmg) {
     int realDamage = dmg - defense;
@@ -30,6 +30,7 @@ void Character::display() const {
               << " DEFENCE: " << defense
               << " SPEED: " << speed
               << " XP: " << xp
+              << " LEVEL: " << level
               << std::endl;
     displayInventory();
 }
@@ -71,7 +72,21 @@ void Character::displayInventory() const {
 void Character::gainXP(int amount) {
     xp += amount;
     std::cout << "  [XP] " << name << " gained " << amount << " XP! (Total: " << xp << ")" << std::endl;
+     // threshold : 100 XP par level
+    int threshold = level * 100;
+    if (xp >= threshold) {
+        xp -= threshold;
+        levelUp();
+    }
 }
+void Character::levelUp() {
+    level++;
+    attack += 5;
+    defense += 2;
+    hp += 20;
+    std::cout << name << " passed to level " << level << "! Stats increased." << std::endl;
+}
+
  
 
 std::string Character::getName() const {
