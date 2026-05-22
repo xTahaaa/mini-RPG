@@ -1,18 +1,22 @@
 # Glitch-Arena
 # 1. Cloner le dépôt
-git clone https://github.com/xTahaaa/mini-RPG.git
-cd mini-RPG
+`git clone https://github.com/xTahaaa/mini-RPG.git`
+
+`cd mini-RPG`
 
 # 2. Créer le répertoire de build
-mkdir build && cd build
+`mkdir build && cd build`
 
 # 3. Générer et compiler
-cmake ..
-cmake --build .
+`cmake ..`
+
+`cmake --build .`
 
 # 4. Exécution
-  # Sur Linux/macOS
-  ./mini-RPG
+  Sur Linux/macOS :
 
-  # Sur Windows
-  .\mini-RPG
+  `./mini-RPG`
+
+  Sur Windows :
+  
+  `.\mini-RPG`
