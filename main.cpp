@@ -12,7 +12,7 @@ int main() {
 
     srand(time(0));
 
-    cout << "========== GLITCH ARENA ==========" << endl;
+    cout << "========== GLITCH ARENA (UPDATED) ==========" << endl;
 
     // ================= HERO CREATION =================
     string heroName;
@@ -31,103 +31,125 @@ int main() {
     Character* hero = nullptr;
 
     switch(heroChoice) {
-
         case 1:
             hero = new Mage(heroName);
             break;
-
         case 2:
             hero = new Guerrier(heroName);
             break;
-
         case 3:
             hero = new Archer(heroName);
             break;
-
         default:
-            cout << "Invalid choice. Mage selected by default." << endl;
+            cout << "Invalid choice → Mage selected by default." << endl;
             hero = new Mage(heroName);
     }
 
-    // ================= RANDOM ENEMY =================
-    Character* enemy = nullptr;
+    // ================= GAME LOOP =================
+    bool playing = true;
 
-    int randomEnemy = rand() % 2;
+    while (playing && hero->isAlive()) {
 
-    if(randomEnemy == 0) {
-        enemy = new Dragon("Inferno");
-    }
-    else {
-        enemy = new Titan("Goliath");
-    }
+        cout << "\n=============================" << endl;
+        cout << " HERO STATUS" << endl;
+        cout << "=============================" << endl;
+        hero->display();
 
-    // ================= DISPLAY STATS =================
-    cout << "\n========== HERO ==========" << endl;
-    hero->display();
+        cout << "\n1. Fight enemy" << endl;
+        cout << "2. Exit game" << endl;
 
-    cout << "\n========== ENEMY ==========" << endl;
-    enemy->display();
+        int choice;
+        cin >> choice;
 
-    cout << "\n========== BATTLE START ==========" << endl;
+        if (choice == 2) {
+            playing = false;
+            break;
+        }
 
-    // ================= COMBAT LOOP =================
-    while(hero->isAlive() && enemy->isAlive()) {
+        if (choice == 1) {
 
-        cout << "\n-----------------------------" << endl;
+            // ================= RANDOM ENEMY =================
+            Character* enemy = nullptr;
 
-        cout << hero->getName()
-             << " HP: " << hero->getHP() << endl;
+            int randomEnemy = rand() % 2;
 
-        cout << enemy->getName()
-             << " HP: " << enemy->getHP() << endl;
+            if (randomEnemy == 0) {
+                enemy = new Dragon("Inferno");
+            } else {
+                enemy = new Titan("Goliath");
+            }
 
-        cout << "\nChoose an action:" << endl;
-        cout << "1. Attack" << endl;
-        cout << "Choice: ";
+            cout << "\n========== NEW ENEMY ==========" << endl;
+            enemy->display();
 
-        int action;
-        cin >> action;
+            cout << "\n========== BATTLE START ==========" << endl;
 
-        if(action == 1) {
+            // ================= COMBAT LOOP =================
+            while (hero->isAlive() && enemy->isAlive()) {
 
-            // speed system
-            if(hero->getSpeed() >= enemy->getSpeed()) {
+                cout << "\n-----------------------------" << endl;
+                cout << hero->getName() << " HP: " << hero->getHP() << endl;
+                cout << enemy->getName() << " HP: " << enemy->getHP() << endl;
 
-                hero->attackTarget(*enemy);
+                cout << "\n1. Attack" << endl;
+                cout << "Choice: ";
 
-                if(enemy->isAlive()) {
-                    enemy->attackTarget(*hero);
+                int action;
+                cin >> action;
+
+                if (action == 1) {
+
+                    // speed system
+                    if (hero->getSpeed() >= enemy->getSpeed()) {
+
+                        hero->attackTarget(*enemy);
+
+                        if (enemy->isAlive()) {
+                            enemy->attackTarget(*hero);
+                        }
+
+                    } else {
+
+                        enemy->attackTarget(*hero);
+
+                        if (hero->isAlive()) {
+                            hero->attackTarget(*enemy);
+                        }
+                    }
+
+                } else {
+                    cout << "Invalid action!" << endl;
                 }
             }
-            else {
 
-                enemy->attackTarget(*hero);
+            // ================= RESULT =================
+            cout << "\n========== BATTLE RESULT ==========" << endl;
 
-                if(hero->isAlive()) {
-                    hero->attackTarget(*enemy);
-                }
+            if (hero->isAlive()) {
+                cout << hero->getName() << " wins!" << endl;
+
+                // XP reward
+                hero->gainXP(100);
+            } else {
+                cout << enemy->getName() << " wins!" << endl;
             }
+
+            // cleanup enemy
+            delete enemy;
         }
-        else {
-            cout << "Invalid action!" << endl;
-        }
     }
 
-    // ================= RESULT =================
-    cout << "\n========== BATTLE ENDED ==========" << endl;
+    // ================= END GAME =================
+    cout << "\n========== GAME OVER ==========" << endl;
 
-    if(hero->isAlive()) {
-        cout << hero->getName()
-             << " wins the battle!" << endl;
-    }
-    else {
-        cout << enemy->getName()
-             << " wins the battle!" << endl;
+    if (hero->isAlive()) {
+        cout << "Final status of hero:" << endl;
+        hero->display();
+    } else {
+        cout << "You died in battle!" << endl;
     }
 
-    // ================= FREE MEMORY =================
     delete hero;
-    delete enemy;
 
     return 0;
 }
