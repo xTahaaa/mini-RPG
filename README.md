@@ -15,9 +15,9 @@ Chaque partie oppose ton héros à un ennemi tiré au sort. Celui qui a la vites
  
 | Classe | PV | Attaque | Défense | Vitesse | Points forts |
 |----------|----|---------|---------|---------|-------------------------------|
-| Mage | 80 | 35 | 8 | 10 | Gros dégâts, 20% de crit (×2) |
-| Archer | 90 | 22 | 8 | 18 | Le plus rapide, 35% de crit (×2) |
-| Guerrier | 120 | 25 | 15 | 8 | Le plus résistant, +5 dégâts fixes |
+| Mage | 150 | 35 | 8 | 10 | Gros dégâts, 20% de crit (×2) |
+| Archer | 150 | 22 | 8 | 18 | Le plus rapide, 35% de crit (×2) |
+| Guerrier | 180 | 25 | 15 | 8 | Le plus résistant, +5 dégâts fixes |
  
 ---
  
@@ -25,8 +25,8 @@ Chaque partie oppose ton héros à un ennemi tiré au sort. Celui qui a la vites
  
 | Ennemi | PV | Attaque | Défense | Vitesse | Capacité spéciale |
 |--------|-----|---------|---------|---------|----------------------------------|
-| Dragon | 200 | 40 | 20 | 12 | 25% de chance de souffle de feu (×2) |
-| Titan | 300 | 35 | 30 | 6 | 15% de chance d'écrasement (×3) |
+| Dragon | 160 | 28 | 10 | 10 | 20% de chance de souffle de feu (×1.5) |
+| Titan | 200 | 22 | 15 | 5 | 15% de chance d'écrasement (×2) |
  
 L'ennemi est choisi aléatoirement au début de chaque session.
  
