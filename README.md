@@ -84,7 +84,7 @@ mini-RPG/
 │   ├── Character.cpp
 │   ├── Heroes.cpp
 │   └── Enemies.cpp
-├── include/ (ou même répertoire)
+├── include/ 
 │   ├── Character.h
 │   ├── Heroes.h
 │   └── Enemies.h
