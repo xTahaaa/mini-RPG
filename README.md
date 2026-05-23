@@ -10,6 +10,15 @@ Un RPG d'arène au tour par tour écrit en C++17. Choisis ton héros, affronte u
 Chaque partie oppose ton héros à un ennemi tiré au sort. Celui qui a la vitesse la plus élevée attaque en premier. Le combat se déroule tour par tour jusqu'à ce qu'un des deux tombe.
  
 ---
+## 🧱 Concepts POO utilisés
+
+| Concept | Implémentation |
+|---|---|
+| Héritage | `Mage`, `Guerrier`, `Archer`, `Dragon`, `Titan` héritent de `Character` |
+| Polymorphisme | `attackTarget()` surchargée dans chaque sous-classe |
+| Encapsulation | Attributs protégés avec getters/setters |
+| Classe abstraite | `Character` avec `attackTarget()` pure virtuelle |
+| Polymorphisme dynamique | `getMagicResistance()` surchargée dans `Dragon` et `Titan` sans if/switch sur le type |
 
 ## 🧙 Classes de héros
  
@@ -38,6 +47,7 @@ L'ennemi est choisi aléatoirement au début de chaque session.
 - **Coups critiques** : chaque classe et ennemi a une chance de multiplier ses dégâts
 - **Inventaire** : chaque personnage démarre avec 3 objets (cosmétique / usage futur)
 - **XP** : les personnages gagnent de l'XP à la création (base pour un futur système de niveaux)
+- **Résistances magiques** : le Mage peut lancer des sorts (feu, glace, foudre, terre). Chaque ennemi possède ses propres résistances via polymorphisme dynamique (sans if/switch sur le type)
 ---
 ## 📋 Prérequis
  
