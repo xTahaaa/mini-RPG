@@ -12,7 +12,7 @@ int main() {
  
     srand(time(0));
  
-    cout << "========== mini-RPG ARENA (UPDATED) ==========" << endl;
+    cout << "========== LAST STAND ARENA ==========" << endl;
  
     // ================= HERO CREATION =================
     string heroName;
