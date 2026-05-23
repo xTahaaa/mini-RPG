@@ -25,6 +25,23 @@ void Mage::attackTarget(Character& target) {
     target.takeDamage(magicDamage);
 }
  
+void Mage::castSpell(Character& target, const std::string& magicType) {
+    std::cout << getName() << " (Mage) casts " << magicType << " spell on "
+              << target.getName() << std::endl;
+ 
+    int baseDamage = getAttack() + (rand() % 20);
+    int resistance = target.getMagicResistance(magicType);
+    float multiplier = 1.0f - (resistance / 100.0f);
+    int finalDamage = static_cast<int>(baseDamage * multiplier);
+ 
+    if (resistance > 0)
+        std::cout << "⚡ " << target.getName() << " is resistant! Damage reduced." << std::endl;
+    else if (resistance < 0)
+        std::cout << "💥 " << target.getName() << " is weak to " << magicType << "! Bonus damage!" << std::endl;
+ 
+    target.takeDamage(finalDamage);
+}
+ 
 // ================= ARCHER =================
 Archer::Archer(const std::string& name)
     : Character(name, 150, 22, 8, 18) {

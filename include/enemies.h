@@ -8,6 +8,7 @@ class Dragon : public Character {
 public:
     Dragon(const std::string& name);
     void attackTarget(Character& target) override;
+    int getMagicResistance(const std::string& magicType) const override;
 };
 // ================= TITAN =================
 
@@ -15,6 +16,7 @@ class Titan : public Character {
 public:
     Titan(const std::string& name);
     void attackTarget(Character& target) override;
+    int getMagicResistance(const std::string& magicType) const override;
 };
 
 #endif

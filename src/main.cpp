@@ -12,7 +12,7 @@ int main() {
  
     srand(time(0));
  
-    cout << "========== LAST STAND ARENA ==========" << endl;
+    cout << "========== mini-RPG ARENA (UPDATED) ==========" << endl;
  
     // ================= HERO CREATION =================
     string heroName;
@@ -46,6 +46,8 @@ int main() {
             cout << "Invalid choice → Mage selected by default." << endl;
             hero = new Mage(heroName);
     }
+ 
+    Mage* mageHero = dynamic_cast<Mage*>(hero);
  
     // ================= GAME LOOP =================
     bool playing = true;
@@ -97,6 +99,7 @@ int main() {
  
                 cout << "\n1. Attack" << endl;
                 cout << "2. Use Item (Inventory)" << endl;
+                if (mageHero) cout << "3. Cast Spell" << endl;
                 cout << "Choice: ";
  
                 int action = 0;
@@ -131,6 +134,31 @@ int main() {
                         cout << "Invalid choice!" << endl;
                     }
  
+                } else if (action == 3 && mageHero) {
+ 
+                    // ================= MAGIC SYSTEM =================
+                    cout << "\n--- CHOOSE SPELL ---" << endl;
+                    cout << "1. Fire" << endl;
+                    cout << "2. Ice" << endl;
+                    cout << "3. Lightning" << endl;
+                    cout << "4. Earth" << endl;
+                    cout << "Choice: ";
+                    int spellChoice = 0;
+                    cin >> spellChoice;
+                    cin.ignore(10000, '\n');
+ 
+                    string spellType;
+                    if (spellChoice == 1) spellType = "fire";
+                    else if (spellChoice == 2) spellType = "ice";
+                    else if (spellChoice == 3) spellType = "lightning";
+                    else spellType = "earth";
+ 
+                    mageHero->castSpell(*enemy, spellType);
+ 
+                    if (enemy->isAlive()) {
+                        enemy->attackTarget(*hero);
+                    }
+ 
                 } else if (action == 1) {
  
                     // speed system
@@ -161,9 +189,6 @@ int main() {
  
             if (hero->isAlive()) {
                 cout << hero->getName() << " wins!" << endl;
- 
-                hero->setHP(hero->getHP() + 20);
-                cout << "You recover 20 HP after battle. HP: " << hero->getHP() << endl;
  
                 if (dynamic_cast<Dragon*>(enemy)) {
                     cout << "Dragon defeated! +60 XP" << endl;

@@ -25,6 +25,9 @@ public:
     
     //damage
     virtual void takeDamage(int dmg);
+
+    // magic resistance (0 = normal, positive = resistant, negative = weak)
+    virtual int getMagicResistance(const std::string& magicType) const { return 0; }
  
     //is still alive or not
     bool isAlive() const;
@@ -58,4 +61,3 @@ public:
 };
  
 #endif
- 

@@ -9,6 +9,7 @@ class Mage : public Character {
 public:
     Mage(const std::string& name);
     void attackTarget(Character& target) override;
+    void castSpell(Character& target, const std::string& magicType);
     virtual ~Mage() {}
 };
 
