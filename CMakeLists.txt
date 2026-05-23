@@ -4,10 +4,10 @@ project(mini-RPG)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(mini-RPG
-    main.cpp
-    enemies.cpp
-    heroes.cpp
+    src/main.cpp
+    src/enemies.cpp
+    src/heroes.cpp
     src/character.cpp
 )
 
-target_include_directories(mini-RPG PRIVATE . include/)
+target_include_directories(mini-RPG PRIVATE include/)
