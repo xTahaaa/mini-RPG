@@ -22,7 +22,7 @@ Chaque partie oppose ton héros à un ennemi tiré au sort. Celui qui a la vites
 
 ## 🧙 Classes de héros
  
-| Classe | PV | Attaque | Défense | Vitesse | Points forts |
+| Classe | PV(HP) | Attaque | Défense | Vitesse | Points forts |
 |----------|----|---------|---------|---------|-------------------------------|
 | Mage | 150 | 35 | 8 | 10 | Gros dégâts, 20% de crit (×2) |
 | Archer | 150 | 22 | 8 | 18 | Le plus rapide, 35% de crit (×2) |
@@ -32,7 +32,7 @@ Chaque partie oppose ton héros à un ennemi tiré au sort. Celui qui a la vites
  
 ## 👹 Ennemis
  
-| Ennemi | PV | Attaque | Défense | Vitesse | Capacité spéciale |
+| Ennemi | PV(HP) | Attaque | Défense | Vitesse | Capacité spéciale |
 |--------|-----|---------|---------|---------|----------------------------------|
 | Dragon | 160 | 28 | 10 | 10 | 20% de chance de souffle de feu (×1.5) |
 | Titan | 200 | 22 | 15 | 5 | 15% de chance d'écrasement (×2) |
